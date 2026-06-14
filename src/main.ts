@@ -48,6 +48,49 @@ const pipelineItems = [
   },
 ];
 
+const productComparisons = [
+  {
+    name: "AIMoCap",
+    href: websiteUrl,
+    score: "4.0 / 5 goal",
+    free: "HF Space public demo",
+    price: "Studio pricing on site",
+    fit: "Video to FBX plus Unitree G1 motion output",
+  },
+  {
+    name: "Rokoko Vision",
+    href: "https://www.rokoko.com/products/video",
+    score: "3.5 / 5",
+    free: "Free single-camera clips under 15s",
+    price: "Basic from $10/mo billed yearly",
+    fit: "Creator-friendly video mocap and Rokoko workflow",
+  },
+  {
+    name: "DeepMotion Animate 3D",
+    href: "https://www.deepmotion.com/animate-3d",
+    score: "3.5 / 5",
+    free: "Freemium 60 animation seconds/month",
+    price: "Paid creator and API tiers",
+    fit: "Browser video-to-animation for creators",
+  },
+  {
+    name: "Plask",
+    href: "https://plask.ai/pricing",
+    score: "3.0 / 5",
+    free: "15 seconds daily limit",
+    price: "Standard $18/mo billed yearly",
+    fit: "Quick web-based character animation workflow",
+  },
+  {
+    name: "Move AI",
+    href: "https://www.move.ai/",
+    score: "4.0 / 5",
+    free: "Move One free clips up to 30s",
+    price: "Starter $18/mo + VAT",
+    fit: "Higher-end markerless capture workflows",
+  },
+];
+
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <header class="site-header">
     <a class="brand" href="${websiteUrl}" aria-label="AIMoCap website">
@@ -219,6 +262,43 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
           <span>Robot target</span><span>Rare</span><span>Separate setup</span><span>Unitree G1</span>
         </div>
       </div>
+    </section>
+
+    <section class="section market-section">
+      <div class="section-heading">
+        <p class="section-kicker">Market Comparison</p>
+        <h2>Positioned for public demos, exports, and robot motion.</h2>
+        <p>
+          Pricing and free quotas change often, so this table uses public-facing
+          signals and qualitative workflow scores rather than a controlled benchmark.
+        </p>
+      </div>
+      <div class="market-table" role="table" aria-label="AI mocap product comparison">
+        <div class="market-row header" role="row">
+          <span>Product</span>
+          <span>Accuracy / stability</span>
+          <span>Free access</span>
+          <span>Public price signal</span>
+          <span>Best fit</span>
+        </div>
+        ${productComparisons
+          .map(
+            (item) => `
+              <div class="market-row" role="row">
+                <span><a href="${item.href}">${item.name}</a></span>
+                <span>${item.score}</span>
+                <span>${item.free}</span>
+                <span>${item.price}</span>
+                <span>${item.fit}</span>
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+      <p class="comparison-note">
+        Scores are product-positioning estimates from public workflows, not lab
+        benchmarks. AIMoCap emphasizes target-aware exports and robot motion.
+      </p>
     </section>
 
     <section class="final-cta">

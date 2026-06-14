@@ -428,7 +428,8 @@ h3 {
   text-transform: uppercase;
 }
 
-.compare-table {
+.compare-table,
+.market-table {
   background: #fff;
   border: 1px solid rgba(14, 22, 24, 0.1);
   border-radius: 8px;
@@ -437,19 +438,29 @@ h3 {
   overflow: hidden;
 }
 
-.compare-row {
+.compare-row,
+.market-row {
   display: grid;
+}
+
+.compare-row {
   grid-template-columns: 1.1fr 1fr 1fr 1.12fr;
 }
 
-.compare-row span {
+.market-row {
+  grid-template-columns: 0.9fr 0.9fr 1fr 1fr 1.28fr;
+}
+
+.compare-row span,
+.market-row span {
   border-bottom: 1px solid rgba(14, 22, 24, 0.08);
   color: #586361;
   min-width: 0;
   padding: 18px;
 }
 
-.compare-row span:first-child {
+.compare-row span:first-child,
+.market-row span:first-child {
   color: #111819;
   font-weight: 850;
 }
@@ -460,7 +471,8 @@ h3 {
   font-weight: 820;
 }
 
-.compare-row.header span {
+.compare-row.header span,
+.market-row.header span {
   background: #111819;
   color: #f8fbf8;
   font-size: 12px;
@@ -471,6 +483,26 @@ h3 {
 .compare-row.header span:last-child {
   background: #80efa9;
   color: #07100b;
+}
+
+.market-row span:nth-child(2) {
+  color: #123328;
+  font-weight: 850;
+}
+
+.market-row:first-child span:nth-child(2) {
+  color: #f8fbf8;
+}
+
+.market-row span:first-child a {
+  color: #0d5d45;
+}
+
+.comparison-note {
+  color: #6a7471;
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 16px 0 0;
 }
 
 .final-cta {
@@ -588,11 +620,16 @@ footer span {
     text-align: left;
   }
 
-  .compare-table {
+  .compare-table,
+  .market-table {
     overflow-x: auto;
   }
 
   .compare-row {
     min-width: 780px;
+  }
+
+  .market-row {
+    min-width: 980px;
   }
 }
