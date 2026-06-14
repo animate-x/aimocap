@@ -1,56 +1,6 @@
-import "./styles.css";
-
-const hfSpaceUrl = "https://huggingface.co/spaces/animtex/AIMoCap";
-const websiteUrl = "https://aimocap.net";
-const repoUrl = "https://github.com/animate-x/aimocap-video2motion";
-
-const demoItems = [
-  {
-    label: "Character animation",
-    title: "Video to FBX",
-    copy: "Recover stable humanoid motion from monocular video for DCC and game-engine review.",
-    src: "/aimocap/assets/feature-video-motion-lite.mp4",
-    poster: "/aimocap/assets/feature-video-motion-poster.jpg",
-  },
-  {
-    label: "Robot motion",
-    title: "Video to Unitree G1",
-    copy: "Retarget reconstructed motion into robot-oriented JSON for simulation and validation.",
-    src: "/aimocap/assets/feature-video-robot-lite.mp4",
-    poster: "/aimocap/assets/feature-video-robot-poster.jpg",
-  },
-];
-
-const pipelineItems = [
-  {
-    step: "01",
-    title: "Single-frame pose encoder",
-    copy: "Extract keypoints, heatmaps, and body evidence from each RGB frame.",
-    accent: "green",
-  },
-  {
-    step: "02",
-    title: "Temporal Transformer",
-    copy: "Model sequence embeddings across time to suppress jitter and recover occluded frames.",
-    accent: "blue",
-  },
-  {
-    step: "03",
-    title: "Diffusion motion prior",
-    copy: "Denoise latent pose sequences and repair implausible full-body motion.",
-    accent: "violet",
-  },
-  {
-    step: "04",
-    title: "Kinematic retargeting",
-    copy: "Apply contact cleanup, IK constraints, and target-specific export mapping.",
-    accent: "amber",
-  },
-];
-
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))p(e);new MutationObserver(e=>{for(const a of e)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&p(i)}).observe(document,{childList:!0,subtree:!0});function c(e){const a={};return e.integrity&&(a.integrity=e.integrity),e.referrerPolicy&&(a.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?a.credentials="include":e.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function p(e){if(e.ep)return;e.ep=!0;const a=c(e);fetch(e.href,a)}})();const n="https://huggingface.co/spaces/animtex/AIMoCap",t="https://aimocap.net",r="https://github.com/animate-x/aimocap-video2motion",l=[{label:"Character animation",title:"Video to FBX",copy:"Recover stable humanoid motion from monocular video for DCC and game-engine review.",src:"/aimocap/assets/feature-video-motion-lite.mp4",poster:"/aimocap/assets/feature-video-motion-poster.jpg"},{label:"Robot motion",title:"Video to Unitree G1",copy:"Retarget reconstructed motion into robot-oriented JSON for simulation and validation.",src:"/aimocap/assets/feature-video-robot-lite.mp4",poster:"/aimocap/assets/feature-video-robot-poster.jpg"}],d=[{step:"01",title:"Single-frame pose encoder",copy:"Extract keypoints, heatmaps, and body evidence from each RGB frame.",accent:"green"},{step:"02",title:"Temporal Transformer",copy:"Model sequence embeddings across time to suppress jitter and recover occluded frames.",accent:"blue"},{step:"03",title:"Diffusion motion prior",copy:"Denoise latent pose sequences and repair implausible full-body motion.",accent:"violet"},{step:"04",title:"Kinematic retargeting",copy:"Apply contact cleanup, IK constraints, and target-specific export mapping.",accent:"amber"}];document.querySelector("#app").innerHTML=`
   <header class="site-header">
-    <a class="brand" href="${websiteUrl}" aria-label="AIMoCap website">
+    <a class="brand" href="${t}" aria-label="AIMoCap website">
       <img src="/aimocap/assets/brand-logo.png" alt="" />
       <span>AIMoCap</span>
     </a>
@@ -58,7 +8,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <a href="#demos">Demos</a>
       <a href="#method">Method</a>
       <a href="#compare">Compare</a>
-      <a href="${repoUrl}">GitHub</a>
+      <a href="${r}">GitHub</a>
     </nav>
   </header>
 
@@ -77,9 +27,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
             avatar motion, and Unitree G1 robot motion outputs.
           </p>
           <div class="actions" aria-label="Primary links">
-            <a class="button primary" href="${hfSpaceUrl}">Try HF Space</a>
-            <a class="button" href="${websiteUrl}">Open Studio</a>
-            <a class="button quiet" href="${repoUrl}">Technical Report</a>
+            <a class="button primary" href="${n}">Try HF Space</a>
+            <a class="button" href="${t}">Open Studio</a>
+            <a class="button quiet" href="${r}">Technical Report</a>
           </div>
         </div>
 
@@ -118,27 +68,23 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         </p>
       </div>
       <div class="demo-grid">
-        ${demoItems
-          .map(
-            (demo) => `
+        ${l.map(o=>`
               <article class="demo-card">
                 <video
-                  src="${demo.src}"
-                  poster="${demo.poster}"
+                  src="${o.src}"
+                  poster="${o.poster}"
                   muted
                   loop
                   playsinline
                   controls
                 ></video>
                 <div>
-                  <span class="tag">${demo.label}</span>
-                  <h3>${demo.title}</h3>
-                  <p>${demo.copy}</p>
+                  <span class="tag">${o.label}</span>
+                  <h3>${o.title}</h3>
+                  <p>${o.copy}</p>
                 </div>
               </article>
-            `,
-          )
-          .join("")}
+            `).join("")}
       </div>
     </section>
 
@@ -152,17 +98,13 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         </p>
       </div>
       <div class="pipeline">
-        ${pipelineItems
-          .map(
-            (item) => `
-              <article class="pipeline-node ${item.accent}">
-                <span>${item.step}</span>
-                <h3>${item.title}</h3>
-                <p>${item.copy}</p>
+        ${d.map(o=>`
+              <article class="pipeline-node ${o.accent}">
+                <span>${o.step}</span>
+                <h3>${o.title}</h3>
+                <p>${o.copy}</p>
               </article>
-            `,
-          )
-          .join("")}
+            `).join("")}
       </div>
     </section>
 
@@ -232,8 +174,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
           review, export, and longer workflows.
         </p>
         <div class="actions">
-          <a class="button primary" href="${hfSpaceUrl}">Try HF Space</a>
-          <a class="button" href="${websiteUrl}">Open Studio</a>
+          <a class="button primary" href="${n}">Try HF Space</a>
+          <a class="button" href="${t}">Open Studio</a>
         </div>
       </div>
     </section>
@@ -241,8 +183,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
   <footer>
     <span>AIMoCap Video2Motion</span>
-    <a href="${repoUrl}">GitHub</a>
-    <a href="${websiteUrl}">Website</a>
-    <a href="${hfSpaceUrl}">HF Space</a>
+    <a href="${r}">GitHub</a>
+    <a href="${t}">Website</a>
+    <a href="${n}">HF Space</a>
   </footer>
 `;
