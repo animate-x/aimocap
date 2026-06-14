@@ -1,12 +1,6 @@
-import "./styles.css";
-
-const hfSpaceUrl = "https://huggingface.co/spaces/animate-x/aimocap";
-const websiteUrl = "https://aimocap.net";
-const repoUrl = "https://github.com/animate-x/aimocap-video2motion";
-
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const a of e)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function p(e){const a={};return e.integrity&&(a.integrity=e.integrity),e.referrerPolicy&&(a.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?a.credentials="include":e.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(e){if(e.ep)return;e.ep=!0;const a=p(e);fetch(e.href,a)}})();const n="https://huggingface.co/spaces/animate-x/aimocap",o="https://aimocap.net",t="https://github.com/animate-x/aimocap-video2motion";document.querySelector("#app").innerHTML=`
   <header class="site-header">
-    <a class="brand" href="${websiteUrl}" aria-label="AIMoCap website">
+    <a class="brand" href="${o}" aria-label="AIMoCap website">
       <img src="/aimocap/assets/brand-logo.png" alt="" />
       <span>AIMoCap</span>
     </a>
@@ -14,7 +8,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <a href="#demos">Demos</a>
       <a href="#framework">Framework</a>
       <a href="#compare">Compare</a>
-      <a href="${repoUrl}">GitHub</a>
+      <a href="${t}">GitHub</a>
     </nav>
   </header>
 
@@ -28,9 +22,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
           output, and Unitree G1 robot motion generation from a short clip.
         </p>
         <div class="actions">
-          <a class="button primary" href="${hfSpaceUrl}">Try HF Space</a>
-          <a class="button" href="${websiteUrl}">Open Studio</a>
-          <a class="button ghost" href="${repoUrl}">GitHub</a>
+          <a class="button primary" href="${n}">Try HF Space</a>
+          <a class="button" href="${o}">Open Studio</a>
+          <a class="button ghost" href="${t}">GitHub</a>
         </div>
       </div>
 
@@ -190,15 +184,15 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         browser workflow and downloads.
       </p>
       <div class="actions">
-        <a class="button primary" href="${hfSpaceUrl}">Try HF Space</a>
-        <a class="button" href="${websiteUrl}">Open Studio</a>
+        <a class="button primary" href="${n}">Try HF Space</a>
+        <a class="button" href="${o}">Open Studio</a>
       </div>
     </section>
   </main>
 
   <footer>
     <span>AIMoCap Video2Motion</span>
-    <a href="${repoUrl}">GitHub</a>
-    <a href="${websiteUrl}">Website</a>
+    <a href="${t}">GitHub</a>
+    <a href="${o}">Website</a>
   </footer>
 `;

@@ -2,7 +2,7 @@
 
 This repository contains the public project page for AIMoCap:
 
-https://animatex.github.io/aimocap
+https://animate-x.github.io/aimocap
 
 AIMoCap turns short videos into animation-ready FBX motion and Unitree G1 robot
 motion outputs. The page is a static Vite site for demos, comparison tables,
@@ -27,5 +27,4 @@ repository branch and `docs` folder.
 ## Public Scope
 
 This repository is only the public project page. It does not contain hosted
-service code, production infrastructure, account systems, storage adapters, or
-private model assets.
+service code, account systems, processing systems, or private model assets.
