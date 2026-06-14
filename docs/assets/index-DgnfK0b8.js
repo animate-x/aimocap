@@ -1,29 +1,6 @@
-import "./styles.css";
-
-const hfSpaceUrl = "https://huggingface.co/spaces/animate-x/aimocap";
-const websiteUrl = "https://aimocap.net";
-const repoUrl = "https://github.com/animate-x/aimocap-video2motion";
-
-const demos = [
-  {
-    label: "Animation",
-    title: "Video to FBX motion",
-    copy: "Generate humanoid motion files for DCC review, cleanup, and game-engine import.",
-    src: "/aimocap/assets/feature-video-motion-lite.mp4",
-    poster: "/aimocap/assets/feature-video-motion-poster.jpg",
-  },
-  {
-    label: "Robotics",
-    title: "Video to Unitree G1 motion",
-    copy: "Retarget the same source clip into robot-oriented motion JSON for simulation review.",
-    src: "/aimocap/assets/feature-video-robot-lite.mp4",
-    poster: "/aimocap/assets/feature-video-robot-poster.jpg",
-  },
-];
-
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))p(e);new MutationObserver(e=>{for(const a of e)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&p(i)}).observe(document,{childList:!0,subtree:!0});function c(e){const a={};return e.integrity&&(a.integrity=e.integrity),e.referrerPolicy&&(a.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?a.credentials="include":e.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function p(e){if(e.ep)return;e.ep=!0;const a=c(e);fetch(e.href,a)}})();const r="https://huggingface.co/spaces/animate-x/aimocap",s="https://aimocap.net",n="https://github.com/animate-x/aimocap-video2motion",l=[{label:"Animation",title:"Video to FBX motion",copy:"Generate humanoid motion files for DCC review, cleanup, and game-engine import.",src:"/aimocap/assets/feature-video-motion-lite.mp4",poster:"/aimocap/assets/feature-video-motion-poster.jpg"},{label:"Robotics",title:"Video to Unitree G1 motion",copy:"Retarget the same source clip into robot-oriented motion JSON for simulation review.",src:"/aimocap/assets/feature-video-robot-lite.mp4",poster:"/aimocap/assets/feature-video-robot-poster.jpg"}];document.querySelector("#app").innerHTML=`
   <header class="site-header">
-    <a class="brand" href="${websiteUrl}" aria-label="AIMoCap website">
+    <a class="brand" href="${s}" aria-label="AIMoCap website">
       <img src="/aimocap/assets/brand-logo.png" alt="" />
       <span>AIMoCap</span>
     </a>
@@ -31,7 +8,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <a href="#demos">Demos</a>
       <a href="#method">Method</a>
       <a href="#compare">Compare</a>
-      <a href="${repoUrl}">GitHub</a>
+      <a href="${n}">GitHub</a>
     </nav>
   </header>
 
@@ -50,9 +27,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
             clip into animation-ready FBX, avatar-ready motion, and Unitree G1 robot output.
           </p>
           <div class="actions" aria-label="Primary links">
-            <a class="button primary" href="${hfSpaceUrl}">Try HF Space</a>
-            <a class="button" href="${websiteUrl}">Open Studio</a>
-            <a class="button subtle" href="${repoUrl}">Read GitHub Report</a>
+            <a class="button primary" href="${r}">Try HF Space</a>
+            <a class="button" href="${s}">Open Studio</a>
+            <a class="button subtle" href="${n}">Read GitHub Report</a>
           </div>
         </div>
 
@@ -91,27 +68,23 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         </p>
       </div>
       <div class="showcase-grid">
-        ${demos
-          .map(
-            (demo) => `
+        ${l.map(o=>`
               <article class="showcase-card">
                 <video
-                  src="${demo.src}"
-                  poster="${demo.poster}"
+                  src="${o.src}"
+                  poster="${o.poster}"
                   muted
                   loop
                   playsinline
                   controls
                 ></video>
                 <div class="card-copy">
-                  <span class="tag">${demo.label}</span>
-                  <h3>${demo.title}</h3>
-                  <p>${demo.copy}</p>
+                  <span class="tag">${o.label}</span>
+                  <h3>${o.title}</h3>
+                  <p>${o.copy}</p>
                 </div>
               </article>
-            `,
-          )
-          .join("")}
+            `).join("")}
       </div>
     </section>
 
@@ -205,16 +178,16 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         browser workflow and downloadable motion outputs.
       </p>
       <div class="actions">
-        <a class="button primary" href="${hfSpaceUrl}">Try HF Space</a>
-        <a class="button" href="${websiteUrl}">Open Studio</a>
+        <a class="button primary" href="${r}">Try HF Space</a>
+        <a class="button" href="${s}">Open Studio</a>
       </div>
     </section>
   </main>
 
   <footer>
     <span>AIMoCap Video2Motion</span>
-    <a href="${repoUrl}">GitHub</a>
-    <a href="${websiteUrl}">Website</a>
-    <a href="${hfSpaceUrl}">HF Space</a>
+    <a href="${n}">GitHub</a>
+    <a href="${s}">Website</a>
+    <a href="${r}">HF Space</a>
   </footer>
 `;

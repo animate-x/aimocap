@@ -8,6 +8,13 @@ AIMoCap turns short videos into animation-ready FBX motion and Unitree G1 robot
 motion outputs. The page is a static Vite site for demos, comparison tables,
 workflow explanation, and links to AIMoCap Studio.
 
+## Page Structure
+
+- Hero demo with direct links to HF Space, AIMoCap Studio, and the GitHub report
+- Demo results for animation and Unitree G1 motion workflows
+- Technical framework section for the public video-to-motion pipeline
+- Comparison table for positioning against pose estimation and traditional mocap
+
 ## Local Development
 
 ```bash
