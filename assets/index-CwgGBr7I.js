@@ -1,6 +1,6 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))p(o);new MutationObserver(o=>{for(const a of o)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&p(i)}).observe(document,{childList:!0,subtree:!0});function c(o){const a={};return o.integrity&&(a.integrity=o.integrity),o.referrerPolicy&&(a.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?a.credentials="include":o.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function p(o){if(o.ep)return;o.ep=!0;const a=c(o);fetch(o.href,a)}})();const r="https://huggingface.co/spaces/animtex/AIMoCap",s="https://aimocap.net",n="https://github.com/animate-x/aimocap-video2motion",l=[{label:"Character animation",title:"Video to FBX",copy:"Recover stable humanoid motion from monocular video for DCC and game-engine review.",src:"/aimocap/assets/feature-video-motion-lite.mp4",poster:"/aimocap/assets/feature-video-motion-poster.jpg"},{label:"Robot motion",title:"Video to Unitree G1",copy:"Retarget reconstructed motion into robot-oriented JSON for simulation and validation.",src:"/aimocap/assets/feature-video-robot-lite.mp4",poster:"/aimocap/assets/feature-video-robot-poster.jpg"}],d=[{step:"01",title:"Single-frame pose encoder",copy:"Extract keypoints, heatmaps, and body evidence from each RGB frame.",accent:"green"},{step:"02",title:"Temporal Transformer",copy:"Model sequence embeddings across time to suppress jitter and recover occluded frames.",accent:"blue"},{step:"03",title:"Diffusion motion prior",copy:"Denoise latent pose sequences and repair implausible full-body motion.",accent:"violet"},{step:"04",title:"Kinematic retargeting",copy:"Apply contact cleanup, IK constraints, and target-specific export mapping.",accent:"amber"}],m=[{name:"AIMoCap",href:s,score:"4.0 / 5 goal",free:"HF Space public demo",price:"Studio pricing on site",fit:"Video to FBX plus Unitree G1 motion output"},{name:"Rokoko Vision",href:"https://www.rokoko.com/products/video",score:"3.5 / 5",free:"Free single-camera clips under 15s",price:"Basic from $10/mo billed yearly",fit:"Creator-friendly video mocap and Rokoko workflow"},{name:"DeepMotion Animate 3D",href:"https://www.deepmotion.com/animate-3d",score:"3.5 / 5",free:"Freemium 60 animation seconds/month",price:"Paid creator and API tiers",fit:"Browser video-to-animation for creators"},{name:"Plask",href:"https://plask.ai/pricing",score:"3.0 / 5",free:"15 seconds daily limit",price:"Standard $18/mo billed yearly",fit:"Quick web-based character animation workflow"},{name:"Move AI",href:"https://www.move.ai/",score:"4.0 / 5",free:"Move One free clips up to 30s",price:"Starter $18/mo + VAT",fit:"Higher-end markerless capture workflows"}];document.querySelector("#app").innerHTML=`
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))p(o);new MutationObserver(o=>{for(const a of o)if(a.type==="childList")for(const r of a.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&p(r)}).observe(document,{childList:!0,subtree:!0});function c(o){const a={};return o.integrity&&(a.integrity=o.integrity),o.referrerPolicy&&(a.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?a.credentials="include":o.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function p(o){if(o.ep)return;o.ep=!0;const a=c(o);fetch(o.href,a)}})();const n="https://huggingface.co/spaces/animtex/AIMoCap?utm_source=github_pages&utm_medium=project_page&utm_campaign=public_preview",t="https://aimocap.net/?utm_source=github_pages&utm_medium=project_page&utm_campaign=public_preview",s="https://github.com/animate-x/aimocap-video2motion",l=[{label:"Character animation",title:"Video to FBX",copy:"Recover stable humanoid motion from monocular video for DCC and game-engine review.",src:"/aimocap/assets/feature-video-motion-lite.mp4",poster:"/aimocap/assets/feature-video-motion-poster.jpg"},{label:"Robot motion",title:"Video to Unitree G1",copy:"Retarget reconstructed motion into robot-oriented JSON for simulation and validation.",src:"/aimocap/assets/feature-video-robot-lite.mp4",poster:"/aimocap/assets/feature-video-robot-poster.jpg"}],d=[{step:"01",title:"Single-frame pose encoder",copy:"Extract keypoints, heatmaps, and body evidence from each RGB frame.",accent:"green"},{step:"02",title:"Temporal Transformer",copy:"Model sequence embeddings across time to suppress jitter and recover occluded frames.",accent:"blue"},{step:"03",title:"Diffusion motion prior",copy:"Denoise latent pose sequences and repair implausible full-body motion.",accent:"violet"},{step:"04",title:"Kinematic retargeting",copy:"Apply contact cleanup, IK constraints, and target-specific export mapping.",accent:"amber"}],m=[{name:"AIMoCap",href:t,score:"4.0 / 5 goal",free:"HF Space public demo",price:"Studio pricing on site",fit:"Video to FBX plus Unitree G1 motion output"},{name:"Rokoko Vision",href:"https://www.rokoko.com/products/video",score:"3.5 / 5",free:"Free single-camera clips under 15s",price:"Basic from $10/mo billed yearly",fit:"Creator-friendly video mocap and Rokoko workflow"},{name:"DeepMotion Animate 3D",href:"https://www.deepmotion.com/animate-3d",score:"3.5 / 5",free:"Freemium 60 animation seconds/month",price:"Paid creator and API tiers",fit:"Browser video-to-animation for creators"},{name:"Plask",href:"https://plask.ai/pricing",score:"3.0 / 5",free:"15 seconds daily limit",price:"Standard $18/mo billed yearly",fit:"Quick web-based character animation workflow"},{name:"Move AI",href:"https://www.move.ai/",score:"4.0 / 5",free:"Move One free clips up to 30s",price:"Starter $18/mo + VAT",fit:"Higher-end markerless capture workflows"}],u=[{label:"Export first",title:"FBX and robot motion",copy:"Most video mocap demos stop at pose tracks. AIMoCap is positioned around downstream files for animation and Unitree G1 review."},{label:"Research readable",title:"AI motion pipeline",copy:"The public report explains pose encoding, temporal modeling, diffusion refinement, and retargeting in one place."},{label:"Try before signup",title:"HF Space public demo",copy:"The project page sends developers to a public demo path before they decide whether to use the fuller Studio workflow."}];document.querySelector("#app").innerHTML=`
   <header class="site-header">
-    <a class="brand" href="${s}" aria-label="AIMoCap website">
+    <a class="brand" href="${t}" aria-label="AIMoCap website">
       <img src="/aimocap/assets/brand-logo.png" alt="" />
       <span>AIMoCap</span>
     </a>
@@ -8,7 +8,8 @@
       <a href="#demos">Demos</a>
       <a href="#method">Method</a>
       <a href="#compare">Compare</a>
-      <a href="${n}">GitHub</a>
+      <a href="#market">Products</a>
+      <a href="${s}">GitHub</a>
     </nav>
   </header>
 
@@ -27,9 +28,10 @@
             avatar motion, and Unitree G1 robot motion outputs.
           </p>
           <div class="actions" aria-label="Primary links">
-            <a class="button primary" href="${r}">Try HF Space</a>
-            <a class="button" href="${s}">Open Studio</a>
-            <a class="button quiet" href="${n}">Technical Report</a>
+            <a class="button primary" href="${n}">Try HF Space</a>
+            <a class="button" href="${t}">Open Studio</a>
+            <a class="button quiet" href="${s}">Technical Report</a>
+            <a class="button quiet" href="${s}">Star on GitHub</a>
           </div>
         </div>
 
@@ -163,9 +165,9 @@
       </div>
     </section>
 
-    <section class="section market-section">
+    <section id="market" class="section market-section">
       <div class="section-heading">
-        <p class="section-kicker">Market Comparison</p>
+        <p class="section-kicker">AI Mocap Product Comparison</p>
         <h2>Positioned for public demos, exports, and robot motion.</h2>
         <p>
           Pricing and free quotas change often, so this table uses public-facing
@@ -196,6 +198,22 @@
       </p>
     </section>
 
+    <section class="section why-section">
+      <div class="output-copy">
+        <p class="section-kicker">Why AIMoCap</p>
+        <h2>Built for developers comparing motion outputs, not just pose demos.</h2>
+      </div>
+      <div class="why-grid">
+        ${u.map(e=>`
+              <article>
+                <span>${e.label}</span>
+                <h3>${e.title}</h3>
+                <p>${e.copy}</p>
+              </article>
+            `).join("")}
+      </div>
+    </section>
+
     <section class="final-cta">
       <div>
         <p class="eyebrow">Try the public workflow</p>
@@ -207,8 +225,8 @@
           review, export, and longer workflows.
         </p>
         <div class="actions">
-          <a class="button primary" href="${r}">Try HF Space</a>
-          <a class="button" href="${s}">Open Studio</a>
+          <a class="button primary" href="${n}">Try HF Space</a>
+          <a class="button" href="${t}">Open Studio</a>
         </div>
       </div>
     </section>
@@ -216,8 +234,8 @@
 
   <footer>
     <span>AIMoCap Video2Motion</span>
-    <a href="${n}">GitHub</a>
-    <a href="${s}">Website</a>
-    <a href="${r}">HF Space</a>
+    <a href="${s}">GitHub</a>
+    <a href="${t}">Website</a>
+    <a href="${n}">HF Space</a>
   </footer>
 `;
