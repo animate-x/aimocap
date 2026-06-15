@@ -295,6 +295,7 @@ h2 {
 .demo-card p,
 .pipeline-node p,
 .output-grid p,
+.why-grid p,
 .final-copy p {
   color: #5a6562;
   line-height: 1.64;
@@ -415,17 +416,33 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.output-grid article {
+.output-grid article,
+.why-grid article {
   background: #fff;
   border: 1px solid rgba(14, 22, 24, 0.1);
   border-radius: 8px;
 }
 
-.output-grid span {
+.output-grid span,
+.why-grid span {
   color: #1f7356;
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.why-section {
+  padding-top: 0;
+}
+
+.why-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.why-grid article {
+  padding: 24px;
 }
 
 .compare-table,
@@ -555,7 +572,8 @@ footer span {
 
   .hero-facts,
   .demo-grid,
-  .output-grid {
+  .output-grid,
+  .why-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -611,7 +629,8 @@ footer span {
   .hero-facts,
   .demo-grid,
   .pipeline,
-  .output-grid {
+  .output-grid,
+  .why-grid {
     grid-template-columns: 1fr;
   }
 

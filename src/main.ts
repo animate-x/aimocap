@@ -1,7 +1,9 @@
 import "./styles.css";
 
-const hfSpaceUrl = "https://huggingface.co/spaces/animtex/AIMoCap";
-const websiteUrl = "https://aimocap.net";
+const hfSpaceUrl =
+  "https://huggingface.co/spaces/animtex/AIMoCap?utm_source=github_pages&utm_medium=project_page&utm_campaign=public_preview";
+const websiteUrl =
+  "https://aimocap.net/?utm_source=github_pages&utm_medium=project_page&utm_campaign=public_preview";
 const repoUrl = "https://github.com/animate-x/aimocap-video2motion";
 
 const demoItems = [
@@ -91,6 +93,24 @@ const productComparisons = [
   },
 ];
 
+const whyItems = [
+  {
+    label: "Export first",
+    title: "FBX and robot motion",
+    copy: "Most video mocap demos stop at pose tracks. AIMoCap is positioned around downstream files for animation and Unitree G1 review.",
+  },
+  {
+    label: "Research readable",
+    title: "AI motion pipeline",
+    copy: "The public report explains pose encoding, temporal modeling, diffusion refinement, and retargeting in one place.",
+  },
+  {
+    label: "Try before signup",
+    title: "HF Space public demo",
+    copy: "The project page sends developers to a public demo path before they decide whether to use the fuller Studio workflow.",
+  },
+];
+
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <header class="site-header">
     <a class="brand" href="${websiteUrl}" aria-label="AIMoCap website">
@@ -101,6 +121,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <a href="#demos">Demos</a>
       <a href="#method">Method</a>
       <a href="#compare">Compare</a>
+      <a href="#market">Products</a>
       <a href="${repoUrl}">GitHub</a>
     </nav>
   </header>
@@ -123,6 +144,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
             <a class="button primary" href="${hfSpaceUrl}">Try HF Space</a>
             <a class="button" href="${websiteUrl}">Open Studio</a>
             <a class="button quiet" href="${repoUrl}">Technical Report</a>
+            <a class="button quiet" href="${repoUrl}">Star on GitHub</a>
           </div>
         </div>
 
@@ -264,9 +286,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       </div>
     </section>
 
-    <section class="section market-section">
+    <section id="market" class="section market-section">
       <div class="section-heading">
-        <p class="section-kicker">Market Comparison</p>
+        <p class="section-kicker">AI Mocap Product Comparison</p>
         <h2>Positioned for public demos, exports, and robot motion.</h2>
         <p>
           Pricing and free quotas change often, so this table uses public-facing
@@ -299,6 +321,26 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         Scores are product-positioning estimates from public workflows, not lab
         benchmarks. AIMoCap emphasizes target-aware exports and robot motion.
       </p>
+    </section>
+
+    <section class="section why-section">
+      <div class="output-copy">
+        <p class="section-kicker">Why AIMoCap</p>
+        <h2>Built for developers comparing motion outputs, not just pose demos.</h2>
+      </div>
+      <div class="why-grid">
+        ${whyItems
+          .map(
+            (item) => `
+              <article>
+                <span>${item.label}</span>
+                <h3>${item.title}</h3>
+                <p>${item.copy}</p>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
     </section>
 
     <section class="final-cta">
